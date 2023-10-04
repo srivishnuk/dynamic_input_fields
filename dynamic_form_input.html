@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Form</title>
+
+    <div class="container px-4 mx-auto">
+        <form id="invoice">
+            <div id="inRows" class="row">
+                <div class="column">
+                    <input class="py-2.5 px-3.5 text-sm w-2/5 hover:bg-gray-50 outline-none placeholder-neutral-400 border border-neutral-200 rounded-lg focus-within:border-neutral-600" type="text" name="name[]" placeholder="Name">
+                    <input class="py-2.5 px-3.5 text-sm w-1/6 hover:bg-gray-50 outline-none placeholder-neutral-400 border border-neutral-200 rounded-lg focus-within:border-neutral-600" type="text" name="title[]" placeholder="Job Title">
+                    <button class="btn bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" onclick="removeRow(this.parentNode)">-</button>
+                </div>
+            </div>
+            <button class="btn bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full" onclick="addRow(); return false">Add Item</button>
+        </form>
+    </div>
+</head>
+
+<script>
+    
+    quantity = document.getElementsByName('quantity[]');
+    price = document.getElementsByName('price[]');
+    lineTotal = document.getElementsByName('lineTotal[]');
+    
+
+    function addRow() {
+      var newColumn = document.createElement('div'); 
+      newColumn.setAttribute("class", "col");
+      newColumn.innerHTML = ' <input class="py-2.5 px-3.5 text-sm w-2/5 hover:bg-gray-50 outline-none placeholder-neutral-400 border border-neutral-200 rounded-lg focus-within:border-neutral-600" type="text" name="name[]" placeholder="Name"> <input class="py-2.5 px-3.5 text-sm w-1/6 hover:bg-gray-50 outline-none placeholder-neutral-400 border border-neutral-200 rounded-lg focus-within:border-neutral-600" type="text" name="title[]" placeholder="Job Title"> <button class="btn bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" onclick="removeRow(this.parentNode)">-</button>';
+      document.getElementById('inRows').appendChild(newColumn);
+  
+    }
+
+    function removeRow(node) {
+        return node.remove()
+    }
+
+    
+   
+</script>
+
+<body>
+    
+</body>
+</html>
